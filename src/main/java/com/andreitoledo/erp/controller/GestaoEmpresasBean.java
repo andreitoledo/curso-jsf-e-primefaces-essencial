@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.andreitoledo.erp.model.Empresa;
+import com.andreitoledo.erp.model.TipoEmpresa;
 import com.andreitoledo.erp.repository.Empresas;
 import com.andreitoledo.erp.util.FacesMessages;
 
@@ -19,23 +20,22 @@ public class GestaoEmpresasBean implements Serializable {
 
 	@Inject
 	private Empresas empresas;
-	
+
 	@Inject
 	private FacesMessages messages;
 
 	private List<Empresa> listaEmpresas;
-	
+
 	private String termoPesquisa;
-	
-	public void pesquisar(){
+
+	public void pesquisar() {
 		listaEmpresas = empresas.pesquisar(termoPesquisa);
-		
+
 		if (listaEmpresas.isEmpty()) {
 			messages.info("Sua consulta não retornou registros.");
-			
+
 		}
 	}
-	
 
 	public void todasEmpresas() {
 		listaEmpresas = empresas.todas();
@@ -44,13 +44,17 @@ public class GestaoEmpresasBean implements Serializable {
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}
-	
+
 	public String getTermoPesquisa() {
 		return termoPesquisa;
 	}
-	
+
 	public void setTermoPesquisa(String termoPesquisa) {
 		this.termoPesquisa = termoPesquisa;
 	}
+
+	public TipoEmpresa[] getTiposEmpresa() {
+        return TipoEmpresa.values();
+    }
 
 }
