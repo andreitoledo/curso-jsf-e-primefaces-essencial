@@ -18,7 +18,7 @@
 		<h:form id="frm">
 			<p:messages id="messages" />
 
-			<p:toolbar>
+			<p:toolbar id="toolbar">
 				<f:facet name="left">
 					<p:inputText id="termoPesquisa"
 						placeholder="Digite aqui um termo para pesquisa..." size="30"
@@ -43,9 +43,11 @@
 						class="ui-icon ui-icon-grip-dotted-vertical" />
 					</span>
 
-					<p:commandButton title="Editar" icon="fa fa-edit" />
+					<p:commandButton title="Editar" icon="fa fa-edit"
+						disabled="#{not gestaoEmpresasBean.empresaSeleciona}" />
 
-					<p:commandButton title="Excluir" icon="fa fa-trash" />
+					<p:commandButton title="Excluir" icon="fa fa-trash"
+						disabled="#{not gestaoEmpresasBean.empresaSeleciona}" />
 
 					<span class="ui-separator"> <span
 						class="ui-icon ui-icon-grip-dotted-vertical" />
@@ -63,7 +65,12 @@
 			<p:dataTable id="empresasDataTable"
 				value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa"
 				emptyMessage="Nenhuma informação a ser exibida" paginator="true"
-				rows="10" paginatorPosition="bottom">
+				rows="10" paginatorPosition="bottom" selectionMode="single"
+				selection="#{gestaoEmpresasBean.empresa}" rowKey="#{empresa.id}">
+
+				<p:ajax event="rowSelect" update="frm:toolbar" />
+
+				<p:ajax event="rowUnselect" update="frm:toolbar" />
 
 				<p:column headerText="Razão social" sortBy="#{empresa.razaoSocial}">
 					<h:outputText value="#{empresa.razaoSocial}" />
@@ -88,8 +95,8 @@
 				widgetVar="empresaDialogWidgetVar" modal="true" resizable="false"
 				closeOnEscape="true">
 				<p:messages id="empresaMessages" />
-				
-				<p:defaultCommand target="salvarCommandButtom" scope="empresaDialog"/>
+
+				<p:defaultCommand target="salvarCommandButtom" scope="empresaDialog" />
 
 				<h:panelGrid id="empresaPanelGrid" columns="2"
 					rendered="#{gestaoEmpresasBean.empresa ne null}">
