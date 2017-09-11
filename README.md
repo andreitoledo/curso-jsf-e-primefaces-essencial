@@ -3,7 +3,7 @@
 
 #### Sobre:
 
-Cadastro de empresas utilizando JSF e Primefaces.
+Curso cadastro de empresas utilizando JSF e Primefaces, ministrado pela Algaworks.com.br
 
 #### Tecnologias:
 Sistema desenvolvido utilizando uma plataforma baseada na tecnologia Java EE com JSF e Primefaces.
