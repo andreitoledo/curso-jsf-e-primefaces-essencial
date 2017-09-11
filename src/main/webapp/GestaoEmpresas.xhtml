@@ -88,6 +88,8 @@
 				widgetVar="empresaDialogWidgetVar" modal="true" resizable="false"
 				closeOnEscape="true">
 				<p:messages id="empresaMessages" />
+				
+				<p:defaultCommand target="salvarCommandButtom" scope="empresaDialog"/>
 
 				<h:panelGrid id="empresaPanelGrid" columns="2"
 					rendered="#{gestaoEmpresasBean.empresa ne null}">
@@ -126,7 +128,7 @@
 						itemValue="#{ramoAtividade}" />
 
 					<h:outputLabel />
-					<p:commandButton value="Salvar"
+					<p:commandButton id="salvarCommandButtom" value="Salvar"
 						actionListener="#{gestaoEmpresasBean.salvar}"
 						update="empresaPanelGrid empresaMessages"
 						oncomplete="if (!args.validationFailed) PF('empresaDialogWidgetVar').hide()"
