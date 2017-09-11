@@ -17,7 +17,7 @@
 
 		<h:form id="frm">
 			<p:messages id="messages" />
-			
+
 			<!-- barra de ferramentas -->
 
 			<p:toolbar id="toolbar">
@@ -54,7 +54,9 @@
 					</p:commandButton>
 
 					<p:commandButton title="Excluir" icon="fa fa-trash"
-						disabled="#{not gestaoEmpresasBean.empresaSeleciona}" />
+						disabled="#{not gestaoEmpresasBean.empresaSeleciona}"
+						actionListener="#{gestaoEmpresasBean.excluir}"
+						update="messages empresasDataTable toolbar" process="@this" />
 
 					<span class="ui-separator"> <span
 						class="ui-icon ui-icon-grip-dotted-vertical" />
