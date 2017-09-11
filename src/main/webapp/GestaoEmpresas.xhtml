@@ -17,6 +17,8 @@
 
 		<h:form id="frm">
 			<p:messages id="messages" />
+			
+			<!-- barra de ferramentas -->
 
 			<p:toolbar id="toolbar">
 				<f:facet name="left">
@@ -44,7 +46,12 @@
 					</span>
 
 					<p:commandButton title="Editar" icon="fa fa-edit"
-						disabled="#{not gestaoEmpresasBean.empresaSeleciona}" />
+						disabled="#{not gestaoEmpresasBean.empresaSeleciona}"
+						actionListener="#{gestaoEmpresasBean.prepararEdicao}"
+						oncomplete="PF('empresaDialogWidgetVar').show()"
+						update="empresaDialog" process="@this">
+						<p:resetInput target="empresaDialog" />
+					</p:commandButton>
 
 					<p:commandButton title="Excluir" icon="fa fa-trash"
 						disabled="#{not gestaoEmpresasBean.empresaSeleciona}" />
