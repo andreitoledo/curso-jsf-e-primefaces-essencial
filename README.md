@@ -1,9 +1,9 @@
-# curso-jsf-e-primefaces-essencial
+# jsf-e-primefaces-essencial
 # Cadastro de empresas
 
 #### Sobre:
 
-Curso cadastro de empresas utilizando JSF e Primefaces, ministrado pela Algaworks.com.br
+Sistema Cadastro de Empresas
 
 #### Tecnologias:
 Sistema desenvolvido utilizando uma plataforma baseada na tecnologia Java EE com JSF e Primefaces.
